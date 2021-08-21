@@ -6,9 +6,7 @@ function insertData($conn, $Address, $Message)
 
     $sql = "INSERT INTO smslog(address, massage) VALUES  ('$Address' ,'$Message')";    
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
@@ -18,13 +16,9 @@ $echoxa = explode(',', str_replace("]", "", str_replace("[", "", $data["data"]))
 foreach ($echoxa as $item) {
     #echo $item;
     $ex = explode("-",$item);
-    echo $ex[0];
-    echo " ";
-    echo $ex[1];
-    echo "\n";
     insertData($conn,$ex[0],$ex[1]);
 }
 
-
+echo "{}";
 $conn->close();
 ?>

