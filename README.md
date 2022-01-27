@@ -1,5 +1,5 @@
 # Teardroid v4
-![Screenshot](https://ik.imagekit.io/jiqzdjrnxp9/IMG-20220122-WA0000_RdKN5Rv3U.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1642847363169)
+![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/IMG-20220122-WA0000_RdKN5Rv3U.jpg)
 
 It's easy to use android botnet work without port forwarding, vps and android studio
 
@@ -40,7 +40,11 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 ```bash 
 $ git clone https://github.com/ScRiPt1337/Teardroid-phprat
 ```
-- cd in the Teardroid-phprat directory, then run the following command to see the options that we can use with the builder.
+- cd in the Teardroid-phprat directory, then type the command below to install all dependencies
+```bash
+$ pip install -r requirements.txt
+```
+- Run the following command to see the options that we can use with the builder.
 ```bash
 $ python Teardroid.py                                                                                                         
   ______                    __           _     __         __ __
@@ -87,11 +91,11 @@ $ deta deploy
 
 ### Screenshot
 
-- ![Builder](https://ik.imagekit.io/hbk8olgjeog/Teardroid/Builder_3oDdS0Tr7?ik-sdk-version=javascript-1.4.3&updatedAt=1643304349612)
+- ![Builder](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/Builder_3oDdS0Tr7.png)
 
-- ![Overview](https://ik.imagekit.io/hbk8olgjeog/Teardroid/2022-01-27_22-29_gYkI6tIvGmG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643303091555)
+- ![Overview](https://github.com/ScRiPt1337/Teardroid-phprat/blob/master/img/2022-01-27_22-29_gYkI6tIvGmG.png)
 
-- ![TaskManager](https://ik.imagekit.io/hbk8olgjeog/Teardroid/2022-01-27_22-49_RakvqeLWG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643303941942)
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-49_RakvqeLWG.jpeg)
 
 
 ### Contact info 
