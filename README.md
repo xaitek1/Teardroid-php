@@ -93,10 +93,12 @@ $ deta deploy
 
 - ![Builder](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/Builder_3oDdS0Tr7.png)
 
-- ![Overview](https://github.com/ScRiPt1337/Teardroid-phprat/blob/master/img/2022-01-27_22-29_gYkI6tIvGmG.png)
+- ![Overview](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-29_gYkI6tIvGmG.png)
 
 - ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-49_RakvqeLWG.jpeg)
 
+### Support me
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
 
 ### Contact info 
 - Email : script@hacksec.in
