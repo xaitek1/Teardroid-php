@@ -84,10 +84,6 @@ $ python Teardroid.py -b your_app_name
 ```bash
 $ deta deploy
 ```
-### Video
-[![How to setup](https://img.youtube.com/vi/qDxc3Sswkro/0.jpg)](https://www.youtube.com/watch?v=qDxc3Sswkro)
-
-
 ### Dashboard
 - visit : https://{your server url}/v4/overview
 - defualt username/password is : admin/admin
@@ -99,6 +95,9 @@ $ deta deploy
 - ![Overview](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-29_gYkI6tIvGmG.png)
 
 - ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-49_RakvqeLWG.jpeg)
+
+### Demo Video
+[![How to setup](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/Builder_3oDdS0Tr7.png)](https://www.youtube.com/watch?v=qDxc3Sswkro)
 
 ### Support me
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
