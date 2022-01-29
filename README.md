@@ -84,6 +84,9 @@ $ python Teardroid.py -b your_app_name
 ```bash
 $ deta deploy
 ```
+### Video
+[![How to setup](https://img.youtube.com/vi/qDxc3Sswkro/0.jpg)](https://www.youtube.com/watch?v=qDxc3Sswkro)
+
 
 ### Dashboard
 - visit : https://{your server url}/v4/overview
