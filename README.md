@@ -105,4 +105,5 @@ $ deta deploy
 ### Contact info 
 - Email : script@hacksec.in
 - Discord : https://discord.gg/5CjQacc
-- visit our website : https://www.hacksec.in
+- Telegram : https://t.me/hacksecofficial
+- Visit our website : https://www.hacksec.in
