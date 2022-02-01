@@ -67,7 +67,7 @@ options:
 ```bash
 $ python Teardroid.py -b your_app_name
 ```
-- It will prompt you with your Control Panel url enter your deta micro URL.
+- It will prompt you with your Control Panel url enter your deta micro URL (without / at the end of the url).
 - You will also be prompted for the title and text of the notification. Enter what you want to display on the notification.
 - DONE
 
