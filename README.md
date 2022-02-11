@@ -23,7 +23,7 @@ It's easy to use android botnet work without port forwarding, vps and android st
 
 - Python3
 - Java
-- Linux os
+- Linux or Windows os
 
 ### Java version i used
 ```bash
