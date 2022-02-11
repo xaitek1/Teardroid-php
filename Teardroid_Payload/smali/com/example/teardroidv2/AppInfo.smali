@@ -127,22 +127,22 @@
     .line 11
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->devHostName:Ljava/lang/String;
 
-    const-string v0, "https://teardroid.deta.dev"
+    const-string v0, "fdgf"
 
     .line 12
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->HOSTNAME:Ljava/lang/String;
 
-    const-string v0, "Google"
+    const-string v0, "dgdfg"
 
     .line 13
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationTitle:Ljava/lang/String;
 
-    const-string v0, "system update"
+    const-string v0, "dfgfd"
 
     .line 14
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationContent:Ljava/lang/String;
 
-    const-string v0, "today"
+    const-string v0, "dsfds"
 
     .line 15
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationSubText:Ljava/lang/String;
