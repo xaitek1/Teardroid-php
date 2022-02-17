@@ -73,6 +73,8 @@ $ python Teardroid.py -b your_app_name
 
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ScRiPt1337/Teardroidv4_api)
 
+### Build using bot
+- Build Teardroid using teardroid_bot https://t.me/teardroid_bot in telegram
 ### Manually deploy the Teardroid control panel
 - Set up an account at [deta.sh](https://web.deta.sh/)
 - Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
