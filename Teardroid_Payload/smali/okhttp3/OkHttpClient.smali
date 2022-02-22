@@ -571,7 +571,9 @@
     const/4 v1, 0x0
 
     .line 286
-    check-cast v1, Ljava/security/KeyStore;
+    move-object v2, v1
+
+    check-cast v2, Ljava/security/KeyStore;
 
     invoke-virtual {v0, v1}, Ljavax/net/ssl/TrustManagerFactory;->init(Ljava/security/KeyStore;)V
 

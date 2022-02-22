@@ -416,6 +416,7 @@
 .method public static getType(I)I
     .locals 1
 
+    .line 0
     const/16 v0, 0x64
 
     if-eq p0, v0, :cond_2

@@ -805,31 +805,31 @@
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    invoke-virtual {p1, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     .line 2367
-    iget-object v0, p0, Lcom/google/android/material/tabs/TabLayout$TabView;->this$0:Lcom/google/android/material/tabs/TabLayout;
+    iget-object v2, p0, Lcom/google/android/material/tabs/TabLayout$TabView;->this$0:Lcom/google/android/material/tabs/TabLayout;
 
-    iget-object v0, v0, Lcom/google/android/material/tabs/TabLayout;->tabRippleColorStateList:Landroid/content/res/ColorStateList;
+    iget-object v2, v2, Lcom/google/android/material/tabs/TabLayout;->tabRippleColorStateList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_5
+    if-eqz v2, :cond_5
 
     .line 2368
-    new-instance v0, Landroid/graphics/drawable/GradientDrawable;
+    new-instance v2, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
     const v3, 0x3727c5ac    # 1.0E-5f
 
     .line 2372
-    invoke-virtual {v0, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
     const/4 v3, -0x1
 
     .line 2373
-    invoke-virtual {v0, v3}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     .line 2375
     iget-object v3, p0, Lcom/google/android/material/tabs/TabLayout$TabView;->this$0:Lcom/google/android/material/tabs/TabLayout;
@@ -849,7 +849,7 @@
     if-lt v4, v5, :cond_4
 
     .line 2381
-    new-instance v2, Landroid/graphics/drawable/RippleDrawable;
+    new-instance v0, Landroid/graphics/drawable/RippleDrawable;
 
     iget-object v4, p0, Lcom/google/android/material/tabs/TabLayout$TabView;->this$0:Lcom/google/android/material/tabs/TabLayout;
 
@@ -869,40 +869,40 @@
     goto :goto_1
 
     :cond_3
-    move-object v1, v0
+    move-object v1, v2
 
     :goto_1
-    invoke-direct {v2, v3, p1, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v0, v3, p1, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    move-object p1, v2
+    move-object p1, v0
 
     goto :goto_2
 
     .line 2387
     :cond_4
-    invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v2}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 2388
-    invoke-static {v0, v3}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
+    invoke-static {v1, v3}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 2389
-    new-instance v1, Landroid/graphics/drawable/LayerDrawable;
+    new-instance v2, Landroid/graphics/drawable/LayerDrawable;
 
     const/4 v3, 0x2
 
     new-array v3, v3, [Landroid/graphics/drawable/Drawable;
 
-    aput-object p1, v3, v2
+    aput-object p1, v3, v0
 
     const/4 p1, 0x1
 
-    aput-object v0, v3, p1
+    aput-object v1, v3, p1
 
-    invoke-direct {v1, v3}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v2, v3}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
-    move-object p1, v1
+    move-object p1, v2
 
     .line 2394
     :cond_5

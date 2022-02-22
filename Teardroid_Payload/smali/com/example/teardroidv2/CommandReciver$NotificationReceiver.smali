@@ -43,7 +43,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 186
+    .line 193
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -58,7 +58,7 @@
 
     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 188
+    .line 195
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -69,12 +69,12 @@
 
     const-string v1, "notification_event"
 
-    .line 189
+    .line 196
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
-    .line 188
+    .line 195
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -83,12 +83,12 @@
 
     move-result-object p1
 
-    .line 190
+    .line 197
     invoke-static {p1}, Lkotlin/text/StringsKt;->trimIndent(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 191
+    .line 198
     sget-object p2, Lcom/example/teardroidv2/AppInfo;->INSTANCE:Lcom/example/teardroidv2/AppInfo;
 
     invoke-virtual {p2}, Lcom/example/teardroidv2/AppInfo;->getTAG()Ljava/lang/String;

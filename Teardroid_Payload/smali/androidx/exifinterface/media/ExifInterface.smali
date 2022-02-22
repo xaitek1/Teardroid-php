@@ -6879,7 +6879,7 @@
 
     check-cast p1, Ljava/io/BufferedInputStream;
 
-    invoke-direct {p0, p1}, Landroidx/exifinterface/media/ExifInterface;->getMimeType(Ljava/io/BufferedInputStream;)I
+    invoke-direct {p0, v1}, Landroidx/exifinterface/media/ExifInterface;->getMimeType(Ljava/io/BufferedInputStream;)I
 
     move-result p1
 

@@ -417,7 +417,9 @@
     :try_start_0
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    check-cast p0, Ljava/lang/Object;
+    move-object v1, p0
+
+    check-cast v1, Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -441,7 +443,9 @@
 
     const-class v0, Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v2, v0
+
+    check-cast v2, Ljava/lang/Class;
 
     .line 79
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -483,7 +487,9 @@
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast p0, Ljava/lang/Throwable;
+    move-object v0, p0
+
+    check-cast v0, Ljava/lang/Throwable;
 
     throw p0
 .end method

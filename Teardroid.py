@@ -3,7 +3,7 @@
 # Date : Wednesday, 26 January 2022
 # Time : 04:04 AM
 
-from ast import Str
+
 from pyfiglet import Figlet
 from pydantic import BaseModel
 import argparse
@@ -32,7 +32,7 @@ parser.add_argument(
     '-b', '--build', help='Build Teardroid with custom name [ex: Teardroid.py -b teardroid]', metavar='')
 
 
-def banner() -> Str:
+def banner() -> str:
     f = Figlet(font='slant')
     return f.renderText("Teardroid v4")
 

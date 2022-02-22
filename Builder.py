@@ -1,4 +1,4 @@
-import os
+import os,sys
 from colorama import Fore, Style
 
 
@@ -41,9 +41,16 @@ class Teardroid:
         self.print_result("Changing app name completed")
 
     def changeHostname(self, hostname) -> None:
+        if hostname == "":
+            self.print_result("Hostname is empty")
+            sys.exit(1)
+        elif hostname.endswith("/"):
+            hostname = hostname[:-1]
+        self.print_result("Changing hostname to " + hostname)
         data = {'data': '    const-string v0, "{hostname}"'.format(
             hostname=hostname), 'line_number': 130, 'file': self.AppInfo}
         self.modify_file(data)
+        self.print_result("Changing hostname completed")
 
     def modify_file(self, new_Info) -> None:
         data = ""

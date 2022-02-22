@@ -69,7 +69,7 @@
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    .line 99
+    .line 92
     check-cast p1, Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/example/teardroidv2/CommandReciver$commandReciver$thread$1$2;->invoke(Ljava/lang/String;)V
@@ -86,7 +86,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 98
+    .line 91
     sget-object v0, Lcom/example/teardroidv2/AppInfo;->INSTANCE:Lcom/example/teardroidv2/AppInfo;
 
     invoke-virtual {v0}, Lcom/example/teardroidv2/AppInfo;->getTAG()Ljava/lang/String;

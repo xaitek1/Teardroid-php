@@ -22,14 +22,16 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .locals 3
 
     .line 1624
     new-instance v0, Landroidx/core/view/WindowInsetsCompat;
 
     const/4 v1, 0x0
 
-    check-cast v1, Landroidx/core/view/WindowInsetsCompat;
+    move-object v2, v1
+
+    check-cast v2, Landroidx/core/view/WindowInsetsCompat;
 
     invoke-direct {v0, v1}, Landroidx/core/view/WindowInsetsCompat;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
 

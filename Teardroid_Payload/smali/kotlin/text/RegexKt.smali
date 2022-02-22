@@ -150,7 +150,9 @@
 
     const-class v0, Ljava/lang/Enum;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     .line 22
     invoke-static {v0}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
@@ -161,10 +163,12 @@
 
     check-cast v1, Ljava/util/EnumSet;
 
-    const-string v2, ""
+    const-string v1, ""
 
     .line 23
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object v1, v0
 
     check-cast v1, Ljava/lang/Iterable;
 
@@ -189,7 +193,9 @@
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast p0, Ljava/util/Set;
+    move-object v0, p0
+
+    check-cast v0, Ljava/util/Set;
 
     return-object p0
 .end method

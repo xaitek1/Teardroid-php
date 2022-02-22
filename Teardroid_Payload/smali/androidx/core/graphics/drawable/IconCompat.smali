@@ -2699,7 +2699,9 @@
     if-nez v2, :cond_2
 
     .line 968
-    check-cast v0, Ljava/lang/String;
+    move-object v2, v0
+
+    check-cast v2, Ljava/lang/String;
 
     const/4 v2, -0x1
 
@@ -2771,6 +2773,8 @@
     :cond_2
     :goto_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch -0x1

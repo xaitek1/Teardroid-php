@@ -1160,7 +1160,9 @@
     const/4 p1, 0x0
 
     .line 440
-    check-cast p1, Lkotlin/time/Duration;
+    move-object v0, p1
+
+    check-cast v0, Lkotlin/time/Duration;
 
     :goto_0
     return-object p1
@@ -1193,7 +1195,9 @@
     const/4 p1, 0x0
 
     .line 429
-    check-cast p1, Lkotlin/time/Duration;
+    move-object v0, p1
+
+    check-cast v0, Lkotlin/time/Duration;
 
     :goto_0
     return-object p1

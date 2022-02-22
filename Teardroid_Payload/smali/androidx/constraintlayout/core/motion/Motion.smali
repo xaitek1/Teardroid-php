@@ -6217,9 +6217,9 @@
     .line 881
     aget-object v9, v9, v8
 
-    move-object v14, v10
+    move-object v13, v10
 
-    move-object v13, v11
+    move-object v14, v13
 
     const/4 v11, 0x0
 
@@ -6237,7 +6237,7 @@
 
     if-eqz v15, :cond_32
 
-    if-nez v13, :cond_31
+    if-nez v14, :cond_31
 
     .line 886
     new-array v13, v1, [D
@@ -6265,9 +6265,7 @@
 
     check-cast v15, [[D
 
-    move-object v14, v13
-
-    move-object v13, v15
+    move-object v14, v15
 
     :cond_31
     const/4 v15, 0x0
@@ -6281,12 +6279,12 @@
 
     float-to-double v2, v10
 
-    aput-wide v2, v14, v12
+    aput-wide v2, v13, v12
 
     .line 890
     aget-object v2, v4, v11
 
-    aget-object v3, v13, v12
+    aget-object v3, v14, v12
 
     invoke-virtual {v2, v9, v3, v15}, Landroidx/constraintlayout/core/motion/MotionPaths;->getCustomData(Ljava/lang/String;[DI)I
 
@@ -6312,12 +6310,12 @@
     move-object/from16 v16, v3
 
     .line 894
-    invoke-static {v14, v12}, Ljava/util/Arrays;->copyOf([DI)[D
+    invoke-static {v13, v12}, Ljava/util/Arrays;->copyOf([DI)[D
 
     move-result-object v2
 
     .line 895
-    invoke-static {v13, v12}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v14, v12}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v3
 

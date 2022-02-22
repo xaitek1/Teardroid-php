@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     .line 1054
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$CancellableLocationListener$1;->this$0:Landroidx/core/location/LocationManagerCompat$CancellableLocationListener;
@@ -48,7 +48,9 @@
     .line 1055
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$CancellableLocationListener$1;->this$0:Landroidx/core/location/LocationManagerCompat$CancellableLocationListener;
 
-    check-cast v1, Landroid/location/Location;
+    move-object v2, v1
+
+    check-cast v2, Landroid/location/Location;
 
     invoke-virtual {v0, v1}, Landroidx/core/location/LocationManagerCompat$CancellableLocationListener;->onLocationChanged(Landroid/location/Location;)V
 

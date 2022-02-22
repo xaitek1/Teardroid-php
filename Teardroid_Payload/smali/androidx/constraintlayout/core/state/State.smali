@@ -926,7 +926,9 @@
 
     .line 277
     :cond_0
-    check-cast v2, Landroidx/constraintlayout/core/state/ConstraintReference;
+    move-object v3, v2
+
+    check-cast v3, Landroidx/constraintlayout/core/state/ConstraintReference;
 
     .line 278
     invoke-virtual {v2, v1}, Landroidx/constraintlayout/core/state/ConstraintReference;->setView(Ljava/lang/Object;)V
@@ -1209,7 +1211,9 @@
     if-eqz v0, :cond_0
 
     .line 285
-    check-cast p1, Landroidx/constraintlayout/core/state/ConstraintReference;
+    move-object v0, p1
+
+    check-cast v0, Landroidx/constraintlayout/core/state/ConstraintReference;
 
     .line 286
     invoke-virtual {p1, p2}, Landroidx/constraintlayout/core/state/ConstraintReference;->setView(Ljava/lang/Object;)V
@@ -1308,7 +1312,9 @@
     if-eqz v1, :cond_1
 
     .line 293
-    check-cast v0, Landroidx/constraintlayout/core/state/ConstraintReference;
+    move-object v1, v0
+
+    check-cast v1, Landroidx/constraintlayout/core/state/ConstraintReference;
 
     .line 294
     invoke-virtual {v0, p2}, Landroidx/constraintlayout/core/state/ConstraintReference;->setTag(Ljava/lang/String;)V

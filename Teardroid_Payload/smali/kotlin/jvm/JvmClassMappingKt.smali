@@ -663,14 +663,18 @@
 
     const-class v0, Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     .line 101
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p0
 
-    check-cast p0, Ljava/lang/Class;
+    move-object v1, p0
+
+    check-cast v1, Ljava/lang/Class;
 
     invoke-virtual {p0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 

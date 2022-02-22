@@ -18,12 +18,14 @@
 .end method
 
 .method public static newRequestQueue(Landroid/content/Context;)Lcom/android/volley/RequestQueue;
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x0
 
     .line 121
-    check-cast v0, Lcom/android/volley/toolbox/BaseHttpStack;
+    move-object v1, v0
+
+    check-cast v1, Lcom/android/volley/toolbox/BaseHttpStack;
 
     invoke-static {p0, v0}, Lcom/android/volley/toolbox/Volley;->newRequestQueue(Landroid/content/Context;Lcom/android/volley/toolbox/BaseHttpStack;)Lcom/android/volley/RequestQueue;
 
@@ -172,7 +174,9 @@
     const/4 p1, 0x0
 
     .line 86
-    check-cast p1, Lcom/android/volley/toolbox/BaseHttpStack;
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/volley/toolbox/BaseHttpStack;
 
     invoke-static {p0, p1}, Lcom/android/volley/toolbox/Volley;->newRequestQueue(Landroid/content/Context;Lcom/android/volley/toolbox/BaseHttpStack;)Lcom/android/volley/RequestQueue;
 

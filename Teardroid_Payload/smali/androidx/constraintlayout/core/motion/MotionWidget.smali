@@ -607,7 +607,7 @@
 .end method
 
 .method public setBounds(IIII)V
-    .locals 2
+    .locals 3
 
     .line 114
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -619,7 +619,9 @@
 
     const/4 v1, 0x0
 
-    check-cast v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget;
+    move-object v2, v1
+
+    check-cast v2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     invoke-direct {v0, v1}, Landroidx/constraintlayout/core/state/WidgetFrame;-><init>(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
 

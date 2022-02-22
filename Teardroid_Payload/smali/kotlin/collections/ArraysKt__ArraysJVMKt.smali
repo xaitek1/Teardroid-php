@@ -213,7 +213,9 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 37
-    check-cast p0, Ljava/util/Collection;
+    move-object v0, p0
+
+    check-cast v0, Ljava/util/Collection;
 
     const/4 v0, 0x0
 

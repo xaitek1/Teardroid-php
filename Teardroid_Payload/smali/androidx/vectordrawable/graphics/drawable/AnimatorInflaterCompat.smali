@@ -232,9 +232,9 @@
     move-result v16
 
     .line 538
-    move-object v5, v15
+    move-object v0, v15
 
-    check-cast v5, Landroid/animation/AnimatorSet;
+    check-cast v0, Landroid/animation/AnimatorSet;
 
     move-object/from16 v0, p0
 
@@ -245,6 +245,8 @@
     move-object/from16 v3, p3
 
     move-object/from16 v4, p4
+
+    move-object v5, v15
 
     move-object/from16 v17, v6
 

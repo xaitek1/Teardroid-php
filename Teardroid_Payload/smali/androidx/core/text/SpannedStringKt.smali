@@ -58,7 +58,9 @@
 
     const-class v0, Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     invoke-interface {p0, p1, p2, v0}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
@@ -107,7 +109,9 @@
 
     const-class p3, Ljava/lang/Object;
 
-    check-cast p3, Ljava/lang/Class;
+    move-object p4, p3
+
+    check-cast p4, Ljava/lang/Class;
 
     invoke-interface {p0, p1, p2, p3}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 

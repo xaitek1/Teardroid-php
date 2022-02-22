@@ -223,12 +223,14 @@
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     const/4 p1, 0x0
 
     .line 1071
-    check-cast p1, Landroid/location/Location;
+    move-object v0, p1
+
+    check-cast v0, Landroid/location/Location;
 
     invoke-virtual {p0, p1}, Landroidx/core/location/LocationManagerCompat$CancellableLocationListener;->onLocationChanged(Landroid/location/Location;)V
 

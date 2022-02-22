@@ -236,7 +236,9 @@
     if-eqz v1, :cond_1
 
     .line 145
-    check-cast v0, Landroid/os/CancellationSignal;
+    move-object v1, v0
+
+    check-cast v1, Landroid/os/CancellationSignal;
 
     invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 

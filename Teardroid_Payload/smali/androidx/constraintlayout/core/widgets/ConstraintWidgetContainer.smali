@@ -3184,7 +3184,9 @@
 
     .line 975
     :cond_22
-    check-cast v11, Ljava/util/ArrayList;
+    move-object v0, v11
+
+    check-cast v0, Ljava/util/ArrayList;
 
     iput-object v11, v1, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;->mChildren:Ljava/util/ArrayList;
 

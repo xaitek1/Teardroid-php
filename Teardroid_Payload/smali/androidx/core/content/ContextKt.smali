@@ -66,7 +66,9 @@
 
     const-class v0, Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getSystemService(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
 

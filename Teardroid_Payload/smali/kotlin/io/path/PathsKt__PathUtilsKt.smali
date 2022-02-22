@@ -1199,7 +1199,9 @@
 
     const-class v2, Ljava/nio/file/attribute/FileAttributeView;
 
-    check-cast v2, Ljava/lang/Class;
+    move-object v3, v2
+
+    check-cast v3, Ljava/lang/Class;
 
     array-length v3, p1
 
@@ -1215,7 +1217,9 @@
 
     if-eqz p1, :cond_0
 
-    check-cast p1, Ljava/nio/file/attribute/FileAttributeView;
+    move-object p0, p1
+
+    check-cast p0, Ljava/nio/file/attribute/FileAttributeView;
 
     return-object p1
 
@@ -1224,7 +1228,9 @@
 
     const-class p1, Ljava/nio/file/attribute/FileAttributeView;
 
-    check-cast p1, Ljava/lang/Class;
+    move-object v0, p1
+
+    check-cast v0, Ljava/lang/Class;
 
     invoke-static {p0, p1}, Lkotlin/io/path/PathsKt;->fileAttributeViewNotAvailable(Ljava/nio/file/Path;Ljava/lang/Class;)Ljava/lang/Void;
 
@@ -1266,7 +1272,9 @@
 
     const-class v0, Ljava/nio/file/attribute/FileAttributeView;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     array-length v1, p1
 
@@ -2406,7 +2414,9 @@
 
     const-class v0, Ljava/nio/file/attribute/BasicFileAttributes;
 
-    check-cast v0, Ljava/lang/Class;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/Class;
 
     array-length v1, p1
 
@@ -2424,7 +2434,9 @@
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast p0, Ljava/nio/file/attribute/BasicFileAttributes;
+    move-object p1, p0
+
+    check-cast p1, Ljava/nio/file/attribute/BasicFileAttributes;
 
     return-object p0
 .end method
@@ -2597,7 +2609,9 @@
     const/4 p0, 0x0
 
     .line 154
-    check-cast p0, Ljava/nio/file/Path;
+    move-object p1, p0
+
+    check-cast p1, Ljava/nio/file/Path;
 
     :goto_0
     return-object p0

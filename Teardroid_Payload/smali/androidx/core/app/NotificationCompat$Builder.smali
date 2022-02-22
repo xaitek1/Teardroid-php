@@ -157,14 +157,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v0, 0x0
 
     .line 1150
-    check-cast v0, Ljava/lang/String;
+    move-object v1, v0
+
+    check-cast v1, Ljava/lang/String;
 
     invoke-direct {p0, p1, v0}, Landroidx/core/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 

@@ -997,7 +997,9 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    check-cast v0, Landroid/view/ViewGroup$LayoutParams;
+    move-object v1, v0
+
+    check-cast v1, Landroid/view/ViewGroup$LayoutParams;
 
     .line 322
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;

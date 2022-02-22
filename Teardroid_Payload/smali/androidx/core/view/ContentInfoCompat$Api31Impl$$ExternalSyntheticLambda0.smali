@@ -1,5 +1,6 @@
 .class public final synthetic Landroidx/core/view/ContentInfoCompat$Api31Impl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/core/util/Predicate;
