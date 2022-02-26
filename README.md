@@ -8,11 +8,11 @@ It's easy to use android botnet work without port forwarding, vps and android st
 [![Hacksec](https://img.shields.io/badge/Teardroid-4.0-red)](https://github.com/ScRiPt1337/Teardroid-phprat/)
 
 ### Features
-- Retrive Contact
-- Retrive SMS
-- Retrive Services
-- Retrive Device Location (Only work when the app is open on newer devices)
-- Retrive Call Logs
+- Retrieve Contact
+- Retrieve SMS
+- Retrieve all running Services
+- Retrieve Device Location (Only work when the app is open on newer devices)
+- Retrieve Call Logs
 - Run Shell Command
 - Change Wallpaper
 - Send SMS
