@@ -105,7 +105,14 @@ $ deta deploy
 - Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
 
 ### Teardroid PRO
-- Go to [teardroid_bot](https://t.me/teardroid_bot) and type /pro to know about teardroid pro
+- Go to telegram and search @teardroid_bot to know how you can get it
+#### PRO Features
+- Get users key strokes (whatever they type in there keyboard like username password etc)
+- Get users clipboard data (get whatever is copied in there clipboard)
+- Ability to hide behind any other app
+- Encrypt files with AES encryption (work as ransomware)
+- Robust connection with server we will setup everything for you on aws or any other self hosting server
+- 24x7 support for 3 month (any kind of help or support related to teardroid will be given by our team)
 
 ### Support me
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
