@@ -10,7 +10,7 @@ It's easy to use android botnet work without port forwarding, vps and android st
 ### Features
 - Retrieve Contact
 - Retrieve SMS
-- Retrieve all running Services
+- Retrieve running Services
 - Retrieve Device Location (Only work when the app is open on newer devices)
 - Retrieve Call Logs
 - Run Shell Command
