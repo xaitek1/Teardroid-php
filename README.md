@@ -1,17 +1,17 @@
-# Teardroid v4
+# :robot: Teardroid v4
 ![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/IMG-20220122-WA0000_RdKN5Rv3U.jpg)
 
-It's easy to use android botnet work without port forwarding, vps and android studio
+🇮🇳 It's easy to use android botnet work without port forwarding, vps and android studio
 
 [![GitHub issues](https://img.shields.io/github/issues/ScRiPt1337/Teardroid-phprat)](https://github.com/ScRiPt1337/Teardroid-phprat/issues)
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fhacksec42)](https://twitter.com/intent/tweet?text=Wow:&url=https://github.com/ScRiPt1337/Teardroid-phprat/)
 [![Hacksec](https://img.shields.io/badge/Teardroid-4.0-red)](https://github.com/ScRiPt1337/Teardroid-phprat/)
 
-### Features
+### :rocket: Features
 - Retrieve Contact
 - Retrieve SMS
 - Retrieve running Services
-- Retrieve Device Location (Only work when the app is open on newer devices)
+- Retrieve Device Location (:worried: Only work when the app is open on newer devices)
 - Retrieve Call Logs
 - Run Shell Command
 - Change Wallpaper
@@ -22,7 +22,7 @@ It's easy to use android botnet work without port forwarding, vps and android st
 - Read Notification
 - Auto-Start
 
-### Requirement
+### :warning: Requirement
 
 - Python3
 - Java
@@ -76,7 +76,7 @@ $ python Teardroid.py -b your_app_name
 
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ScRiPt1337/Teardroidv4_api)
 
-### Build using bot
+### :city_sunset: Build using bot
 - Build Teardroid using [teardroid_bot](https://t.me/teardroid_bot) in telegram
 ### Manually deploy the Teardroid control panel
 - Set up an account at [deta.sh](https://web.deta.sh/)
@@ -104,9 +104,9 @@ $ deta deploy
 ### Demo Video
 - Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
 
-### Teardroid PRO
+### :atm: Teardroid PRO
 - Go to telegram and search @teardroid_bot to know how you can get it
-#### PRO Features
+#### :stars: PRO Features
 - Get users key strokes (whatever they type in there keyboard like username password etc)
 - Get users clipboard data (get whatever is copied in there clipboard)
 - Ability to hide behind any other app (like : Facebook, Twitter, LinkedIn etc)
