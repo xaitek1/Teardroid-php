@@ -110,7 +110,7 @@ $ deta deploy
 - Get users key strokes (whatever they type in there keyboard like username password etc)
 - Get users clipboard data (get whatever is copied in there clipboard)
 - A Guide about how you can manually bind teardroid pro with any legitimate app
-- Ability to hide behind any other app (like : Facebook, Twitter, LinkedIn etc)
+- Ability to hide behind any other legitimate app without binding (like : Facebook, Twitter, LinkedIn etc)
 - Encrypt files with AES encryption (work as ransomware)
 - Robust connection with server we will setup everything for you on aws or any other self hosting server
 - 24x7 support for 3 month (any kind of help or support related to teardroid will be given by our team)
