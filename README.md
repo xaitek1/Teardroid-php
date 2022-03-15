@@ -121,6 +121,6 @@ $ deta deploy
 ### Contact info 
 - Email : script@hacksec.in
 - Discord : https://discord.gg/5CjQacc
-- Telegram : https://t.me/hacksecofficial
+- Telegram : https://t.me/script1337
 - Visit our website : https://www.hacksec.in
 - Visit Teardroid Website : https://teardroidv4.deta.dev
