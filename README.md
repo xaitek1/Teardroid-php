@@ -118,7 +118,7 @@ $ deta deploy
 ### Support me
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
 
-### Beware from scams
+### Beware from scam
 - Make sure the bot username is @teardroid_bot beware from scam
 - I am only available on telegram and script1337 is my only account please double check the username
 
