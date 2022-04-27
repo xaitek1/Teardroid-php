@@ -120,7 +120,7 @@ $ deta deploy
 
 ### Beware from scams
 - Make sure the bot username is @teardroid_bot beware from scam
-- I am only available on telegram and script1337 is my only account
+- I am only available on telegram and script1337 is my only account please double check the username
 
 ### Contact info 
 - Email : script@hacksec.in
