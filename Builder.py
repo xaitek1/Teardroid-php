@@ -1,4 +1,5 @@
-import os,sys
+import os
+import sys
 from colorama import Fore, Style
 
 
@@ -15,7 +16,8 @@ class Teardroid:
         self.changeHostname(self, hostname)
 
     def print_result(self, message) -> None:
-        print(Fore.YELLOW + "[+] {message}!".format(message=message))
+        print(Fore.YELLOW +
+              "[+] {message}!".format(message=message) + " \N{check mark}")
 
     def changeNotification(self, title, content, subtext) -> None:
         self.print_result("Changing notification title to " + title)
