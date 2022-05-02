@@ -38,15 +38,13 @@ class Config(BaseModel):
 
 
 config = Config()
-parser = argparse.ArgumentParser(
-    description='Teardroid v4.0 - A tool to build teardroid spyware for Android devices.')
+parser = argparse.ArgumentParser()
 
-
-parser.add_argument('-v', '--version', help='Version of Teardroid',
+parser.add_argument('-v', '--version', help='Version of Teardroid 🥴',
                     action='version', version=config.version)
 
 parser.add_argument(
-    '-b', '--build', help='Build Teardroid with custom name [ex: Teardroid.py -b teardroid]', metavar='')
+    '-b', '--build', help='Build Teardroid with custom name [ex: Teardroid.py -b teardroid] 😷', metavar='')
 
 
 def banner() -> str:
