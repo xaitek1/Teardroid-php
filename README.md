@@ -39,6 +39,14 @@ OpenJDK Runtime Environment (build 11.0.13+8)
 OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 ```
 
+### Tested on
+
+- Windows 11
+- Windows 10
+- Manjaro
+- Kali linux
+- Ubuntu
+
 ### How to setup
 
 - Set up an account at [deta.sh](https://web.deta.sh/) its free.
