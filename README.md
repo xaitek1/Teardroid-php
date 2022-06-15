@@ -28,7 +28,7 @@
 
 - Python3
 - Java
-- Linux or Windows os
+- Linux or Windows os (we don't support termux use gcloud)
 
 ### Java version i used
 
@@ -47,10 +47,27 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 - Kali linux
 - Ubuntu
 
+### Deploy the Teardroid control panel
+
+- Set up an account at [deta.sh](https://web.deta.sh/)
+- Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
+- Logging in to Deta via the CLI
+- Create a new Python Micro using the command below
+
+```bash
+$ deta new --python teardroid_control # its will create an teardroid_control folder
+```
+
+- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo
+- Move all Teardroidv4_api Files to teardroid_control folder.
+- Deploy the Control panel using the following command.
+
+```bash
+$ deta deploy
+```
+
 ### How to setup
 
-- Set up an account at [deta.sh](https://web.deta.sh/) its free.
-- Click Deploy to Deta Button to configure your control panel.
 - Clone Teardroid-phprat repo with the following command.
 
 ```bash
@@ -96,25 +113,9 @@ $ python Teardroid.py -b your_app_name
 - You will also be prompted for the title and text of the notification. Enter what you want to display on the notification.
 - DONE
 
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ScRiPt1337/Teardroidv4_api)
-
 ### :city_sunset: Build using bot
 
 - Build Teardroid using [teardroid_bot](https://t.me/teardroid_bot) in telegram
-
-### Manually deploy the Teardroid control panel
-
-- Set up an account at [deta.sh](https://web.deta.sh/)
-- Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
-- Logging in to Deta via the CLI
-- Create a new Python Micro
-- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo
-- Move all Teardroidv4_api Files to your deta micro folder.
-- Deploy the Control panel using the following command.
-
-```bash
-$ deta deploy
-```
 
 ### Dashboard
 
@@ -135,7 +136,7 @@ $ deta deploy
 
 ### :atm: Teardroid PRO
 
-- Go to telegram and search @teardroid_bot to know how you can get it
+- Go to telegram and message me here https://t.me/script1337
 
 #### :stars: PRO Features
 
