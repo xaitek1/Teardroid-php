@@ -58,7 +58,12 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 $ deta new --python teardroid_control # its will create an teardroid_control folder
 ```
 
-- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo
+- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo using the command below
+
+```bash
+$ git clone https://github.com/ScRiPt1337/Teardroidv4_api
+```
+
 - Move all Teardroidv4_api Files to teardroid_control folder.
 - Deploy the Control panel using the following command.
 
