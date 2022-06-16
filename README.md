@@ -64,7 +64,13 @@ $ deta new --python teardroid_control # its will create an teardroid_control fol
 $ git clone https://github.com/ScRiPt1337/Teardroidv4_api
 ```
 
-- Move all Teardroidv4_api Files to teardroid_control folder.
+- Move all Teardroidv4_api Files to teardroid_control folder using the command below
+
+```bash
+$ cd Teardroidv4_api
+$ cp -r * ../teardroid_control/
+```
+
 - Deploy the Control panel using the following command.
 
 ```bash
