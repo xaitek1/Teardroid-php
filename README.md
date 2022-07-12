@@ -1,3 +1,5 @@
+### :warning:Disclaimer : This software is meant for educational purposes only. I'm not responsible for any malicious use of the app.
+
 # :robot: Teardroid v4
 
 ![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/IMG-20220122-WA0000_RdKN5Rv3U.jpg)
@@ -175,3 +177,4 @@ $ python Teardroid.py -b your_app_name
 - Email : anon42237@gmail.com
 - Telegram : https://t.me/script1337
 - Visit our website : https://www.hacksec.in
+
