@@ -70,7 +70,10 @@ $ git clone https://github.com/ScRiPt1337/Teardroidv4_api
 $ cd Teardroidv4_api
 $ cp -r * ../teardroid_control/
 ```
-
+- Go back to the deta repo folder using the command below
+```bash
+$ cd ../teardroid_control/
+```
 - Deploy the Control panel using the following command.
 
 ```bash
