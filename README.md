@@ -48,6 +48,7 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 - Manjaro
 - Kali linux
 - Ubuntu
+- macOS 12.4 [added by @yusufusta]
 
 ### Deploy the Teardroid control panel
 

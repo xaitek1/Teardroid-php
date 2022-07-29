@@ -73,8 +73,13 @@ class Teardroid:
 
     def CompressAPK(self) -> None:
         zipalign = None
+        macOS_Check = os.uname().sysname == "Darwin"
+
         if self.os == "posix":
-            zipalign = os.path.join(os.getcwd(), "zipalign")
+            if macOS_Check:
+                zipalign = os.path.join(os.getcwd(), "zipalign_macos")
+            else:
+                zipalign = os.path.join(os.getcwd(), "zipalign")
         else:
             zipalign = os.path.join(os.getcwd(), "zipalign.exe")
         os.system(zipalign + " -v 4 " + self.name +
