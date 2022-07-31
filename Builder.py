@@ -73,7 +73,7 @@ class Teardroid:
 
     def CompressAPK(self) -> None:
         zipalign = None
-        macOS_Check = os.uname().sysname == "Darwin"
+        macOS_Check = os.name == "Darwin"
 
         if self.os == "posix":
             if macOS_Check:
