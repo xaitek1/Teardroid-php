@@ -1,7 +1,7 @@
 import os
 import sys
 from colorama import Fore, Style
-
+import platform
 
 class Teardroid:
     def __init__(self, name) -> None:
@@ -73,13 +73,13 @@ class Teardroid:
 
     def CompressAPK(self) -> None:
         zipalign = None
-        macOS_Check = os.name == "Darwin"
+        macOS_Check = platform.system() == "Darwin"
 
         if self.os == "posix":
-            if macOS_Check:
-                zipalign = os.path.join(os.getcwd(), "zipalign_macos")
-            else:
+            if macOS_Check == False:
                 zipalign = os.path.join(os.getcwd(), "zipalign")
+            else:
+                zipalign = os.path.join(os.getcwd(), "zipalign_macos")
         else:
             zipalign = os.path.join(os.getcwd(), "zipalign.exe")
         os.system(zipalign + " -v 4 " + self.name +
