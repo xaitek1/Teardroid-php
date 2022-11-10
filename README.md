@@ -155,7 +155,9 @@ $ python Teardroid.py -b your_app_name
 
 ### :atm: Scatter ALFA
 
-- Go to telegram and message me here https://t.me/script1337
+- Scatter ALFA is paid.
+- Go to telegram and message me if you're interested here https://t.me/script1337
+- join our telegram channel https://t.me/scatter1337
 
 ![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/scatter.png)
 
