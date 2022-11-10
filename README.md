@@ -161,6 +161,12 @@ $ python Teardroid.py -b your_app_name
 
 ![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/scatter.png)
 
+![dashboard](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/dashboard.png)
+
+![1](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/1.png)
+
+![2](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2.png)
+
 ### Support me
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/script1337x)
