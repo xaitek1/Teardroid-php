@@ -72,10 +72,13 @@ $ git clone https://github.com/ScRiPt1337/Teardroidv4_api
 $ cd Teardroidv4_api
 $ cp -r * ../teardroid_control/
 ```
+
 - Go back to the deta repo folder using the command below
+
 ```bash
 $ cd ../teardroid_control/
 ```
+
 - Deploy the Control panel using the following command.
 
 ```bash
@@ -150,18 +153,11 @@ $ python Teardroid.py -b your_app_name
 
 - Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
 
-### :atm: Teardroid PRO
+### :atm: Scatter ALFA
 
 - Go to telegram and message me here https://t.me/script1337
 
-#### :stars: PRO Features
-
-- Get users key strokes (whatever they type in there keyboard like username password etc)
-- Get users clipboard data (get whatever is copied in there clipboard)
-- Add webview in the app
-- Encrypt files with AES encryption (work as ransomware)
-- Robust connection with server we will setup everything for you on aws or any other self hosting server
-- 24x7 support for 3 month (any kind of help or support related to teardroid will be given by our team)
+![Screenshot](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/scatter.png)
 
 ### Support me
 
@@ -177,4 +173,3 @@ $ python Teardroid.py -b your_app_name
 - Email : anon42237@gmail.com
 - Telegram : https://t.me/script1337
 - Visit our website : https://www.hacksec.in
-
