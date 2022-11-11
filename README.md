@@ -31,6 +31,7 @@
 - Python3
 - Java
 - Linux or Windows os (we don't support termux use gcloud)
+- For android mobile users use github Codespaces
 
 ### Java version i used
 
