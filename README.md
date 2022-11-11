@@ -162,7 +162,8 @@ $ python Teardroid.py -b your_app_name
 
 ### Demo Video
 
-- Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
+- video : [setup control panel and build apk using browser](https://www.instagram.com/reel/Ck1kbjWDvq6/?igshid=YmMyMTA2M2Y%3D)
+- old Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
 
 ### :atm: Want something with more advanced features try Scatter ALFA
 

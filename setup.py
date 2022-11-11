@@ -1,12 +1,3 @@
-# echo "Teardroid 4.0 installation script"
-# curl -fsSL https://get.deta.dev/cli.sh | sh
-# deta new --python teardroid_control
-# git clone https://github.com/ScRiPt1337/Teardroidv4_api
-# cd Teardroidv4_api
-# cp -r * ../teardroid_control/
-# cd ../teardroid_control/
-# deta deploy
-
 import os
 from Teardroid import banner
 from colorama import Fore, Style
