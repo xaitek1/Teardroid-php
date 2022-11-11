@@ -42,9 +42,9 @@ def setup():
     run_without_output(
         "git clone https://github.com/ScRiPt1337/Teardroidv4_api")
     print(Fore.GREEN + "Moving all the important files...")
-    run_without_output("cp -r ./Teardroidv4_api/* ../teardroid_control/")
+    run_without_output("cp -r ./Teardroidv4_api/* ./teardroid_control/")
     print(Fore.GREEN + "Deploying code into the cloud...")
-    run_without_output("cd ../teardroid_control/ && deta deploy")
+    run_without_output("cd ./teardroid_control/ && deta deploy")
 
 
 setup()
