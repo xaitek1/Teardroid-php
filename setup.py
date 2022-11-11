@@ -17,6 +17,12 @@ def run_without_output(command: str) -> None:
     os.system(command)
 
 
+def save_token(token_instr):
+    with open("/home/"+os.environ.get('USER')+"/.deta/tokens", "w") as token:
+        token.write(str({"deta_access_token": token_instr}))
+        os.environ["DETA_ACCESS_TOKEN"] = token_instr
+
+
 def setup():
     print(Fore.GREEN + banner())
     print(Fore.GREEN + "Running teardroid control panel setup...")
@@ -26,6 +32,7 @@ def setup():
     if (os.name != "posix"):
         print(Fore.RED + "This script is not for windows use wsl or codespace if your using windows or setup control panel manually...")
         os._exit(0)
+    deta_cli_path = "/home/"+os.environ.get('USER')+"/.deta/bin/deta"
     print(Fore.GREEN + "updating your system.")
     run_without_output("sudo apt-get update")
     print(Fore.GREEN + "installing git...")
@@ -33,18 +40,17 @@ def setup():
     print(Fore.GREEN + "installing deta-cli...")
     run_without_output("curl -fsSL https://get.deta.dev/cli.sh | sh")
     print(Fore.GREEN + "setting your access token...")
-    run_without_output(
-        "source ~/.bashrc && export DETA_ACCESS_TOKEN=" + access_token)
+    save_token(access_token)
     print(Fore.GREEN + "creating new micro in deta...")
     run_without_output(
-        "deta new --python teardroid_control")
+        deta_cli_path + " new --python teardroid_control")
     print(Fore.GREEN + "cloning teardroid_api repo")
     run_without_output(
         "git clone https://github.com/ScRiPt1337/Teardroidv4_api")
     print(Fore.GREEN + "Moving all the important files...")
     run_without_output("cp -r ./Teardroidv4_api/* ./teardroid_control/")
     print(Fore.GREEN + "Deploying code into the cloud...")
-    run_without_output("cd ./teardroid_control/ && deta deploy")
+    run_without_output("cd ./teardroid_control/ && "+deta_cli_path+" deploy")
 
 
 setup()
