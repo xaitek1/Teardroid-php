@@ -11,6 +11,12 @@ import os
 from Teardroid import banner
 from colorama import Fore, Style
 import subprocess
+import random
+import string
+
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 
 def run_without_output(command: str) -> None:
@@ -33,6 +39,7 @@ def setup():
         print(Fore.RED + "This script is not for windows use wsl or codespace if your using windows or setup control panel manually...")
         os._exit(0)
     deta_cli_path = "/home/"+os.environ.get('USER')+"/.deta/bin/deta"
+    deta_micro_name = id_generator()
     print(Fore.GREEN + "updating your system.")
     run_without_output("sudo apt-get update")
     print(Fore.GREEN + "installing git...")
@@ -43,14 +50,15 @@ def setup():
     save_token(access_token)
     print(Fore.GREEN + "creating new micro in deta...")
     run_without_output(
-        deta_cli_path + " new --python teardroid_control")
+        deta_cli_path + " new --python " + deta_micro_name)
     print(Fore.GREEN + "cloning teardroid_api repo")
     run_without_output(
         "git clone https://github.com/ScRiPt1337/Teardroidv4_api")
     print(Fore.GREEN + "Moving all the important files...")
-    run_without_output("cp -r ./Teardroidv4_api/* ./teardroid_control/")
+    run_without_output(
+        f"cp -r ./Teardroidv4_api/* ./{deta_micro_name}/")
     print(Fore.GREEN + "Deploying code into the cloud...")
-    run_without_output("cd ./teardroid_control/ && "+deta_cli_path+" deploy")
+    run_without_output(f"cd ./{deta_micro_name}/ && {deta_cli_path} deploy")
 
 
 setup()

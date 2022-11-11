@@ -53,10 +53,12 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 ### Deploy the Teardroid control panel ( automatically )
 
 - Set up an account at [deta.sh](https://web.deta.sh/)
-- Login into your account and go to settings ( [settings ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/deta_dash.png) | [create access token ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token.png) )
+- Login into your account and go to settings ( [settings ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/deta_dash.png) | [create access token ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token2.png) )
 - click on create access token and copy the access token
 - run python3 setup.py
-- it will ask you for the access token paste the access token and done.
+- it will ask you for the access token paste the access token.
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token.png)
+- Done
 
 ### Deploy the Teardroid control panel ( Manually )
 
