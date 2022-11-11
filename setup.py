@@ -44,7 +44,7 @@ def setup():
     print(Fore.GREEN + "Moving all the important files...")
     run_without_output("cp -r ./Teardroidv4_api/* ../teardroid_control/")
     print(Fore.GREEN + "Deploying code into the cloud...")
-    run_with_output("cd ../teardroid_control/ && deta deploy")
+    run_without_output("cd ../teardroid_control/ && deta deploy")
 
 
 setup()
