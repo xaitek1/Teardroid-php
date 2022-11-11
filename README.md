@@ -17,7 +17,7 @@
 - Retrieve running Services
 - Retrieve Device Location (:worried: Only work when the app is open on newer devices)
 - Retrieve Call Logs
-- Run Shell Command
+- Run Shell Command ( use findphno command in run shell command to get device phone number and use findx:pdf to find all the pdf files on the device )
 - Change Wallpaper
 - Send SMS
 - Make Call
@@ -173,7 +173,7 @@ $ python Teardroid.py -b your_app_name
 
 ### Beware from scam
 
-- Make sure the bot username is @teardroid_bot beware from scam
+- Make sure the channel username is @scatter1337 beware from scam
 - I am only available on telegram and script1337 is my only account please double check the username
 
 ### Contact info
