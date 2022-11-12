@@ -156,9 +156,9 @@ $ python Teardroid.py -b your_app_name
 
 - ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/2022-01-27_22-49_RakvqeLWG.jpeg)
 
-### Demo Video
+### Setup Video
 
-- video : [setup control panel and build apk using browser](https://www.instagram.com/reel/Ck1kbjWDvq6/?igshid=YmMyMTA2M2Y%3D)
+- video : [setup control panel and build apk using browser only](https://www.instagram.com/reel/Ck1kbjWDvq6/?igshid=YmMyMTA2M2Y%3D)
 - old Video : [how to hack android phone using Teardroid v4](https://www.instagram.com/tv/CZSu4y0osHo/?utm_source=ig_web_button_share_sheet)
 
 ### :atm: Want something with more advanced features try Scatter ALFA
