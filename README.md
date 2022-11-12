@@ -25,6 +25,9 @@
 - Download File
 - Read Notification
 - Auto-Start
+- Add webview in homepage
+
+![Homepage](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/fakescreen.git)
 
 ### :warning: Requirement
 
