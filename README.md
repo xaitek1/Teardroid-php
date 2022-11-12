@@ -143,10 +143,6 @@ $ python Teardroid.py -b your_app_name
 - You will also be prompted for the title and text of the notification. Enter what you want to display on the notification.
 - DONE
 
-### :city_sunset: Build using bot
-
-- Build Teardroid using [teardroid_bot](https://t.me/teardroid_bot) in telegram
-
 ### Dashboard
 
 - visit : https://{your server url}/v4/overview
