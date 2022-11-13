@@ -26,6 +26,8 @@
 - Read Notification
 - Auto-Start
 - Add webview in homepage
+- Ignore Battery Optimisation
+- Get device admin permission
 
 ![Homepage](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/fakescreen.gif)
 
@@ -208,6 +210,7 @@ $ python Teardroid.py -b your_app_name
 ### :atm: Want something with more advanced features try Scatter ALFA
 
 - Scatter ALFA is paid.
+- Get a live demo on video call.
 - Message me on telegram if you're interested => https://t.me/script1337
 - join our telegram channel https://t.me/scatter1337
 
