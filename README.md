@@ -53,7 +53,7 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 - Kali linux
 - Ubuntu
 
-### Deploy the Teardroid control panel ( automatically )
+### Deploy the Teardroid control panel ( automatically ) ( recommend )
 
 - Set up an account at [deta.sh](https://web.deta.sh/)
 - Login into your account and go to settings ( [settings ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/deta_dash.png) | [create access token ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token2.png) )
