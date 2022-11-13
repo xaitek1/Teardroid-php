@@ -60,8 +60,9 @@ OpenJDK 64-Bit Server VM (build 11.0.13+8, mixed mode)
 - click on create access token and copy the access token
 - run python3 setup.py
 - it will ask you for the access token paste the access token.
-- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token.png)
-- Done
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/20507b2c-0668-4b21-913b-aeab369f0229.gif)
+- Done and here is your control panel url.
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/control_url.png)
 
 ### Deploy the Teardroid control panel ( Manually )
 
@@ -145,6 +146,8 @@ $ python Teardroid.py -b your_app_name
 - It will prompt you with your Control Panel url enter your deta micro URL (without / at the end of the url).
 - You will also be prompted for the title and text of the notification. Enter what you want to display on the notification.
 - DONE
+
+- ![Build using codespace](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/625b8abb-089b-4896-98c9-43dc28ab740b.gif)
 
 ### Dashboard
 
