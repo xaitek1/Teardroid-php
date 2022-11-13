@@ -210,7 +210,7 @@ $ python Teardroid.py -b your_app_name
 ### :atm: Want something with more advanced features try Scatter ALFA
 
 - Scatter ALFA is paid.
-- Get a live demo on video call.
+- Get a live demo on google meet or zoom.
 - Message me on telegram if you're interested => https://t.me/script1337
 - join our telegram channel https://t.me/scatter1337
 
